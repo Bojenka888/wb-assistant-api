@@ -4,8 +4,18 @@ import json
 app = Flask(__name__)
 
 # Загрузка каталога товаров
-with open('products.json', encoding='utf-8') as f:
-    catalog = json.load(f)
+import itertools
+
+def load_catalog():
+    parts = ["products_part1.json", "products_part2.json"]
+    all_items = []
+    for part in parts:
+        with open(part, encoding="utf-8") as f:
+            all_items.extend(json.load(f))
+    return all_items
+
+catalog = load_catalog()
+)
 
 # Поиск по ключевым словам
 def search_products(query):
