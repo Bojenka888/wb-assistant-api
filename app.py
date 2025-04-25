@@ -12,7 +12,12 @@ def search_products(query):
     query = query.lower()
     results = []
     for item in catalog:
-        if query in item['title'].lower() or query in item['description'].lower():
+        keywords = item.get("keywords", [])
+        if (
+            query in item["title"].lower()
+            or query in item["description"].lower()
+            or query in keywords
+        ):
             results.append(item)
     return results[:5]
 
