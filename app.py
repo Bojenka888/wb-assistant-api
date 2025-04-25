@@ -16,7 +16,6 @@ def load_catalog():
 
 catalog = load_catalog()
 
-
 # Поиск по ключевым словам
 def search_products(query):
     query = query.lower()
