@@ -15,7 +15,7 @@ def load_catalog():
     return all_items
 
 catalog = load_catalog()
-)
+
 
 # Поиск по ключевым словам
 def search_products(query):
