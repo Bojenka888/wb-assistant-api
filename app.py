@@ -13,7 +13,11 @@ def search_products(query):
     results = []
     for item in catalog:
         if query in item['title'].lower() or query in item['description'].lower():
-            results.append(item)
+            results.append({
+                "name": item["title"],
+                "link": item["url"],
+                "description": item["description"]
+            })
     return results[:5]
 
 @app.route('/search', methods=['GET'])
